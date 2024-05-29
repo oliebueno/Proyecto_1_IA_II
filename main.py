@@ -23,21 +23,24 @@ if __name__ == '__main__':
         theta_optimal, cost_history = lr_model.gradient_descend(
             alpha, epsilon, max_iterations)
 
-        # Imprime los parámetros óptimos
-        print("Parámetros óptimos (theta):", theta_optimal)
+        # a) Curva de Convergencia (J() vs. Iteraciones)
+        plt.plot(range(len(cost_history)), cost_history)
+        plt.xlabel("Iteraciones")
+        plt.ylabel("Costo J()")
+        plt.title("Curva de Convergencia")
+        plt.show()
 
-        # Grafica los datos originales
+        # b) Scatterplot de los Datos con la Curva de Regresión Lineal
         plt.scatter(x[:, 0], y, label="Datos originales")
-
-        # Calcula los valores predichos usando los parámetros óptimos
         y_pred = theta_optimal[0] + theta_optimal[1] * x
-
-        # Grafica la línea de regresión
         plt.plot(x, y_pred, color='red', label="Regresión lineal")
-
         plt.xlabel("Característica independiente")
         plt.ylabel("Datos dependientes")
         plt.title("Regresión Lineal")
         plt.legend()
         plt.grid(True)
         plt.show()
+
+        print("Resultados:")
+        print(f"Parámetros óptimos theta: {theta_optimal}")
+        print(cost_history)
