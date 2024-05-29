@@ -1,4 +1,5 @@
 import sys
+import numpy as np
 import matplotlib.pyplot as plt
 from linear_regression import LinearRegression as ln
 from Utils.parser import parser
@@ -14,7 +15,7 @@ if __name__ == '__main__':
         lr_model = ln(x, y)
 
         # Hiperparámetros para el descenso de gradiente
-        alpha = 0.01
+        alpha = 0.0000001
         epsilon = 1e-6
         max_iterations = 1000
 
