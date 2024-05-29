@@ -15,7 +15,7 @@ if __name__ == '__main__':
         lr_model = ln(x, y)
 
         # Hiperparámetros para el descenso de gradiente
-        alpha = 0.0000001
+        alpha = 0.000001
         epsilon = 1e-6
         max_iterations = 1000
 
@@ -27,14 +27,13 @@ if __name__ == '__main__':
         print("Parámetros óptimos (theta):", theta_optimal)
 
         # Grafica los datos originales
-        plt.scatter(x[:, 1], y, label="Datos originales")
+        plt.scatter(x[:, 0], y, label="Datos originales")
 
         # Calcula los valores predichos usando los parámetros óptimos
-        x_pred = np.linspace(min(x[:, 1]), max(x[:, 1]), 100)
-        y_pred = theta_optimal[0] + theta_optimal[1] * x_pred
+        y_pred = theta_optimal[0] + theta_optimal[1] * x
 
         # Grafica la línea de regresión
-        plt.plot(x_pred, y_pred, color='red', label="Regresión lineal")
+        plt.plot(x, y_pred, color='red', label="Regresión lineal")
 
         plt.xlabel("Característica independiente")
         plt.ylabel("Datos dependientes")
