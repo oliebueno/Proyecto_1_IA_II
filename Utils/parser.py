@@ -3,19 +3,24 @@ import numpy as np
 # Función para leer los datos
 
 
-def parser(file_path):
+def parser(file_path, dependent_feature=0):
     with open(file_path, 'r') as file:
         lines = file.readlines()
 
     # Se ignoran los encabezados, solo por ahora
     lines = lines[1:]
 
-    x = []  # Caracteísticas independientes
+    x = []  # Características independientes
     y = []  # Datos dependientes
 
     for line in lines:
         parts = line.strip().split()
-        if len(parts) > 2:
+        if dependent_feature == 1:
+            # Asume que la característica dependiente está en la última columna
+            y.append(float(parts[-1]))
+            x.append([float(value) for value in parts[1:-1]])
+        else:
+            # Asume que la característica dependiente está en la primera columna
             y.append(float(parts[1]))
             x.append([float(value) for value in parts[2:]])
 

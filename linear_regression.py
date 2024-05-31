@@ -13,7 +13,7 @@ class LinearRegression:
         self.theta_actual = np.zeros(self.x.shape[1])
         self.theta_prev = np.zeros(self.x.shape[1])
 
-    # Función que calcula la norma
+    # Función que calcula la norm
     def norma2(self, x):
         return np.linalg.norm(x)
 
@@ -25,6 +25,24 @@ class LinearRegression:
     def cost_function(self):
         return (1 / (2 * len(self.y))) * np.sum((self.h_0() - self.y) ** 2)
 
+    # Función para normalizar los datos
+    def normalize(self):
+
+        x_norm = self.x[:, 1:]
+        mean = np.mean(x_norm, axis=0)
+        std = np.std(x_norm, axis=0)
+
+        print(mean)
+        print(std)
+        # Evita la división por cero
+        std[std == 0] = 1
+
+        x_norm = (x_norm - mean) / std
+
+        self.x = np.c_[self.x[:, 0], x_norm]
+        return x_norm
+
+    # Función que implementa el descenso del gradiente
     def gradient_descend(self, alpha, epsilon, max_ite):
 
         cost_history = [self.cost_function()]
