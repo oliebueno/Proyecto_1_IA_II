@@ -97,16 +97,24 @@ if __name__ == '__main__':
             alpha=0.001, epsilon=1e-6, max_ite=10000)
 
         # Para datos normalizados
-        lr_model_3.normalize()  # Normaliza las características
-        theta_optimal_norm, cost_history_norm = lr_model_3.gradient_descend(
+        lr_model_4 = ln(x1, y1)
+        lr_model_4.normalize()  # Normaliza las características
+        theta_optimal_norm, cost_history_norm = lr_model_4.gradient_descend(
             alpha=0.001, epsilon=1e-6, max_ite=10000)
 
         print(cost_history_norm)
 
-        # Graficar ambas curvas en la misma figura
-        plt.figure(figsize=(8, 6))
+        # Graficar ambas curvas
         plt.plot(range(len(cost_history)), cost_history,
                  label='Sin Normalizar', linestyle='-', color='blue')
+
+        plt.xlabel('Iteraciones')
+        plt.ylabel('Costo J()')
+        plt.title('Curvas de Convergencia para alpha = 0.001')
+        plt.legend()
+        plt.grid(True)
+        plt.show()
+
         plt.plot(range(len(cost_history_norm)), cost_history_norm,
                  label='Normalizado', linestyle='-', color='red')
         plt.xlabel('Iteraciones')
