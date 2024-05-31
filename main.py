@@ -38,8 +38,8 @@ if __name__ == '__main__':
         plt.scatter(x[:, 0], y, label="Datos originales")
         y_pred = theta_optimal[0] + theta_optimal[1] * x
         plt.plot(x, y_pred, color='red', label="Regresión lineal")
-        plt.xlabel("Body Weight")
-        plt.ylabel("Brain Weight")
+        plt.xlabel("Brain Weight")
+        plt.ylabel("Body Weight")
         plt.title("Regresión Lineal - 2.1.1 b)")
         plt.legend()
         plt.grid(True)
@@ -76,8 +76,8 @@ if __name__ == '__main__':
         plt.scatter(x_norma[:, 0], y, label="Datos originales")
         y_pred = theta_optimal[0] + theta_optimal[1] * x_norma
         plt.plot(x_norma, y_pred, color='red', label="Regresión lineal")
-        plt.xlabel("Body Weight")
-        plt.ylabel("Brain Weight")
+        plt.xlabel("Brain Weight")
+        plt.ylabel("Body Weight")
         plt.title("Regresión Lineal 2.1.2 b)")
         plt.legend()
         plt.grid(True)
