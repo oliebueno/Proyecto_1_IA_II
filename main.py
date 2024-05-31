@@ -31,7 +31,7 @@ if __name__ == '__main__':
         plt.plot(range(len(cost_history)), cost_history)
         plt.xlabel("Iteraciones")
         plt.ylabel("Costo J()")
-        plt.title("Curva de Convergencia")
+        plt.title("Curva de Convergencia - 2.1.1 a)")
         plt.show()
 
         # b) Scatterplot de los Datos con la Curva de Regresión Lineal
@@ -40,7 +40,7 @@ if __name__ == '__main__':
         plt.plot(x, y_pred, color='red', label="Regresión lineal")
         plt.xlabel("Body Weight")
         plt.ylabel("Brain Weight")
-        plt.title("Regresión Lineal")
+        plt.title("Regresión Lineal - 2.1.1 b)")
         plt.legend()
         plt.grid(True)
         plt.show()
@@ -69,7 +69,7 @@ if __name__ == '__main__':
         plt.plot(range(len(cost_history)), cost_history)
         plt.xlabel("Iteraciones")
         plt.ylabel("Costo J()")
-        plt.title("Curva de Convergencia")
+        plt.title("Curva de Convergencia - 2.1.2 a)")
         plt.show()
 
         # b) Scatterplot de los Datos con la Curva de Regresión Lineal
@@ -78,12 +78,12 @@ if __name__ == '__main__':
         plt.plot(x_norma, y_pred, color='red', label="Regresión lineal")
         plt.xlabel("Body Weight")
         plt.ylabel("Brain Weight")
-        plt.title("Regresión Lineal")
+        plt.title("Regresión Lineal 2.1.2 b)")
         plt.legend()
         plt.grid(True)
         plt.show()
 
-        print("Resultados 1:")
+        print("Resultados 1 normalizados:")
         print(f"Parámetros óptimos theta: {theta_optimal}")
 
         # -------------Parte 2.2.1
@@ -102,15 +102,13 @@ if __name__ == '__main__':
         theta_optimal_norm, cost_history_norm = lr_model_4.gradient_descend(
             alpha=0.001, epsilon=1e-6, max_ite=10000)
 
-        print(cost_history_norm)
-
         # Graficar ambas curvas
         plt.plot(range(len(cost_history)), cost_history,
                  label='Sin Normalizar', linestyle='-', color='blue')
 
         plt.xlabel('Iteraciones')
         plt.ylabel('Costo J()')
-        plt.title('Curvas de Convergencia para alpha = 0.001')
+        plt.title('Curvas de Convergencia para alpha = 0.001 - 2.2.1')
         plt.legend()
         plt.grid(True)
         plt.show()
@@ -119,7 +117,7 @@ if __name__ == '__main__':
                  label='Normalizado', linestyle='-', color='red')
         plt.xlabel('Iteraciones')
         plt.ylabel('Costo J()')
-        plt.title('Curvas de Convergencia para alpha = 0.001')
+        plt.title('Curvas de Convergencia para alpha = 0.001 Normalizado - 2.2.1')
         plt.legend()
         plt.grid(True)
         plt.show()
@@ -142,7 +140,7 @@ if __name__ == '__main__':
 
         plt.xlabel('Iteraciones')
         plt.ylabel('Costo J()')
-        plt.title('Curvas de Convergencia para Diferentes Valores de Alpha')
+        plt.title('Curvas de Convergencia para Diferentes Valores de Alpha - 2.2.2')
         plt.legend()
         plt.grid(True)
         plt.show()
