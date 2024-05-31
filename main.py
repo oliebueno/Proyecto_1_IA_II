@@ -124,7 +124,7 @@ if __name__ == '__main__':
         plt.grid(True)
         plt.show()
 
-        # ---------
+        # ----------Parte 2.2.2
         # Lista de valores de alpha para probar
         alphas = [0.001, 0.005, 0.01, 0.05, 0.1, 1]
 
