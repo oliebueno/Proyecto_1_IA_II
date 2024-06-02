@@ -48,31 +48,23 @@ if __name__ == '__main__':
         plt.grid(True)
         plt.show()
 
-        print("Resultados 1:")
-        print(f"Parámetros óptimos theta: {theta_optimal}")
-
         # -----------Parte 2.1.2
 
         # Crea una instancia de la clase LinearRegression
         lr_model_2 = ln(x, y)
 
-        # Hiperparámetros para el descenso de gradiente
-        alpha = 0.0000001
-        epsilon = 1e-6
-        max_iterations = 1000
-
         # Normaliza los datos
         x_norma = lr_model_2.normalize()
 
-        # Ejecuta el descenso de gradiente para obtener los parámetros óptimos
+        # Ejecuta el descenso de gradiente para obtener los parámetros óptimos con alfa 0.001
         theta_optimal, cost_history = lr_model_2.gradient_descend(
-            alpha, epsilon, max_iterations)
+            alpha=0.001, epsilon=1e-6, max_ite=10000)
 
         # a) Curva de Convergencia (J() vs. Iteraciones)
         plt.plot(range(len(cost_history)), cost_history)
         plt.xlabel("Iteraciones")
         plt.ylabel("Costo J()")
-        plt.title("Curva de Convergencia - 2.1.2 a)")
+        plt.title("Curva de Convergencia, alfa = 0.001 - 2.1.2 a)")
         plt.show()
 
         # b) Scatterplot de los Datos con la Curva de Regresión Lineal
@@ -86,8 +78,22 @@ if __name__ == '__main__':
         plt.grid(True)
         plt.show()
 
-        print("Resultados 1 normalizados:")
-        print(f"Parámetros óptimos theta: {theta_optimal}")
+        # Crea una instancia de la clase LinearRegression
+        lr_model_2 = ln(x, y)
+
+        # Normaliza los datos
+        x_norma = lr_model_2.normalize()
+
+        # Ejecuta el descenso de gradiente para obtener los parámetros óptimos con alfa 0.0000001
+        theta_optimal, cost_history = lr_model_2.gradient_descend(
+            alpha=0.0000001, epsilon=1e-6, max_ite=10000)
+
+        # a) Curva de Convergencia (J() vs. Iteraciones)
+        plt.plot(range(len(cost_history)), cost_history)
+        plt.xlabel("Iteraciones")
+        plt.ylabel("Costo J()")
+        plt.title("Curva de Convergencia, alfa = 0.0000001 - 2.1.2 a)")
+        plt.show()
 
         # -------------Parte 2.2.1
 
