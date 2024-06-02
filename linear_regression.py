@@ -18,12 +18,13 @@ class LinearRegression:
         return np.linalg.norm(x)
 
     # Hipotesis
-    def h_0(self):
-        return np.dot(self.x, self.theta_actual)
+    def h_0(self, x):
+        x = np.c_[np.ones(len(x)), np.array(x)]
+        return np.dot(x, self.theta_actual)
 
     # Función de costo
     def cost_function(self):
-        return (1 / (2 * len(self.y))) * np.sum((self.h_0() - self.y) ** 2)
+        return (1 / (2 * len(self.y))) * np.sum((np.dot(self.x, self.theta_actual) - self.y) ** 2)
 
     # Función para normalizar los datos
     def normalize(self):
@@ -32,8 +33,6 @@ class LinearRegression:
         mean = np.mean(x_norm, axis=0)
         std = np.std(x_norm, axis=0)
 
-        print(mean)
-        print(std)
         # Evita la división por cero
         std[std == 0] = 1
 

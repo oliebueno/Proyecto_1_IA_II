@@ -2,6 +2,8 @@ import numpy as np
 
 # Función para leer los datos
 
+# Lee archivos y asigna  las caracteristicas y las variable dependiente
+
 
 def parser(file_path, dependent_feature=0):
     with open(file_path, 'r') as file:
